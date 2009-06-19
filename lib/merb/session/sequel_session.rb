@@ -92,6 +92,7 @@ module Merb
     # Virtual attribute writer - override.
     def data=(hsh)
       @data = hsh if hsh.is_a?(Hash)
+      changed_columns << :data unless changed_columns.include?(:data)
     end
 
     # Has the session been loaded yet?
